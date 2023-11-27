@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom'; 
+import { useSelector } from 'react-redux';
 
 
 function Review() {
-    
+    const feelings = useSelector(store => store.feelings);
+    const understanding = useSelector(store => store.understanding);
+    const support = useSelector(store => store. support);
+    const comments = useSelector(store => store.comments);
     const submitReview = (event) => {
+        event.preventDefault();
         axios.post('/feedback', {
-            DATA
+            feelings: feelings,
+            understanding: understanding,
+            support: support,
+            comments: comments
             }).then((response) => {
                 handleClick();
             }).catch((err) => {
@@ -16,18 +24,18 @@ function Review() {
             });
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        submitReview(review);
-    }
-
     return (
         <div>
-            Feelings
-            Understanding
-            Support
-            Comments
-            <button onClick={handleSubmit}>Submit Feedback</button>
+            <h1>Review before submitting</h1>
+            <h4>Feelings</h4>
+            {feelings}
+            <h4>Understanding</h4>
+            {understanding}
+            <h4>Support</h4>
+            {support}
+            <h4>Comments</h4>
+            {comments}
+            <button onClick={submitReview}>Submit Feedback</button>
         </div>
     )
 }

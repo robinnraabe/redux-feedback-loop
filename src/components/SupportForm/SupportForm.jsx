@@ -1,24 +1,32 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom'; 
 
-
 function SupportForm() {
+    let [support, setSupport] = useState('');
+    const dispatch = useDispatch();
     const history = useHistory();
-    const handleClick = (event) => {
+    const addSupport = (event) => {
+        dispatch({type: 'SET_SUPPORT', payload: support});
         history.push('/comments');
     }
 
+    const handleChange = (event) => {
+        setSupport(event.target.value);
+      }
+
     return (
-        <div>
-            <input 
-                required
-                className="input-field"
-                type="text" 
-                placeholder="How well are you being supported?"
-            />
-            <button onClick={handleClick}>Next</button>
-        </div>
+        <form onSubmit={(event) => addFeelings(event)}>
+        <input 
+            required
+            className='input-field'
+            type='text'
+            placeholder='How well are you being supported?'
+            onChange={handleChange}
+            value={support}
+        />
+        <button type='submit' onClick={addSupport}>Next</button>
+    </form>
+
     )
 }
 

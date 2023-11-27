@@ -9,6 +9,7 @@ import UnderstandingForm from '../UnderstandingForm/UnderstandingForm.jsx';
 import SupportForm from '../SupportForm/SupportForm.jsx';
 import CommentForm from '../CommentForm/CommentForm.jsx';
 import Review from '../Review/Review.jsx';
+import EndPage from '../EndPage/EndPage.jsx';
 
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route exact path='/review'>
           <Review />
+        </Route>
+        <Route exact path='/endpage'>
+          <EndPage />
         </Route>
       </Router>
     </div>

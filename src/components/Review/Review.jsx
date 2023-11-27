@@ -9,6 +9,7 @@ function Review() {
     const understanding = useSelector(store => store.understanding);
     const support = useSelector(store => store. support);
     const comments = useSelector(store => store.comments);
+    const history = useHistory();
     const submitReview = (event) => {
         event.preventDefault();
         axios.post('/feedback', {
@@ -17,9 +18,9 @@ function Review() {
             support: support,
             comments: comments
             }).then((response) => {
-                handleClick();
-            }).catch((err) => {
-                console.log(error);
+                history.push('/endpage');
+            }).catch((error) => {
+                console.log('Error submitting feedback:', error);
                 alert('Something went wrong!');
             });
     }
@@ -35,6 +36,8 @@ function Review() {
             {support}
             <h4>Comments</h4>
             {comments}
+            <br />
+            <br />
             <button onClick={submitReview}>Submit Feedback</button>
         </div>
     )

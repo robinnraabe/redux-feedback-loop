@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'; 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { FormControl, FormLabel, TextField, Button } from '@mui/material';
 
 
 function CommentForm() {
-    let [comment, setComment] = useState('');
+    let [comment, setComment] = useState(useSelector(store => store.comments));
     const dispatch = useDispatch();
     const history = useHistory();
     const addComment = () => {
@@ -16,17 +17,16 @@ function CommentForm() {
         }
 
     return (
-        <form onSubmit={(event) => addComment()}>
-        <input 
-            required
-            className='input-field'
-            type='text'
-            placeholder='Any comments you want to leave?'
-            onChange={handleChange}
-            value={comment}
-        />
-        <button type='submit' onClick={addComment}>Review Feedback</button>
-    </form>
+        <FormControl>
+            <FormLabel id='text-field' sx={{ fontSize: '24px' }}>Any comments you want to leave?</FormLabel>
+            <br />
+            <TextField
+                value={comment}
+                onChange={handleChange}
+            />
+            <br />
+            <Button type='submit' variant='contained' onClick={addComment}>Review</Button> 
+        </FormControl>
     )
 }
 

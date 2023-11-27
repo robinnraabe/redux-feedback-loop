@@ -4,11 +4,32 @@ import { useHistory } from 'react-router-dom';
 
 
 function Review() {
-    // variables
+    
+    const submitReview = (event) => {
+        axios.post('/feedback', {
+            DATA
+            }).then((response) => {
+                handleClick();
+            }).catch((err) => {
+                console.log(error);
+                alert('Something went wrong!');
+            });
+    }
 
-    // functions
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        submitReview(review);
+    }
 
-    // return
+    return (
+        <div>
+            Feelings
+            Understanding
+            Support
+            Comments
+            <button onClick={handleSubmit}>Submit Feedback</button>
+        </div>
+    )
 }
 
 export default Review;

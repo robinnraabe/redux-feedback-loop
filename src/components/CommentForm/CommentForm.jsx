@@ -4,11 +4,21 @@ import { useHistory } from 'react-router-dom';
 
 
 function CommentForm() {
-    // variables
+    const history = useHistory();
+    const handleClick = (event) => {
+        history.push('/review');
+    }
 
-    // functions
-
-    // return
+    return (
+        <div>
+            <input 
+                className="input-field"
+                type="text" 
+                placeholder="Any comments you want to leave?"
+            />
+            <button onClick={handleClick}>Next</button>
+        </div>
+    )
 }
 
 export default CommentForm;

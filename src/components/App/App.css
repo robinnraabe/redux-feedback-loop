@@ -21,3 +21,8 @@
 h4 {
   font-style: italic;
 }
+
+.input-field {
+  height: 100px;
+  width: 300px;
+}

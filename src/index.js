@@ -6,7 +6,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const feelings = (state='', action) => {
+const feelings = (state=null, action) => {
     switch (action.type) {
         case 'SET_FEELINGS':
             return action.payload;
@@ -15,7 +15,7 @@ const feelings = (state='', action) => {
     }
 }
 
-const support = (state='', action) => {
+const support = (state=null, action) => {
     switch (action.type) {
         case 'SET_SUPPORT':
             return action.payload;
@@ -24,7 +24,7 @@ const support = (state='', action) => {
     }
 }
 
-const understanding = (state='', action) => {
+const understanding = (state=null, action) => {
     switch (action.type) {
         case 'SET_UNDERSTANDING':
             return action.payload;

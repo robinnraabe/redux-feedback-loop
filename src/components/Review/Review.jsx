@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom'; 
 import { useSelector } from 'react-redux';
+import { Button, Box } from '@mui/material';
 
 
 function Review() {
@@ -24,24 +25,57 @@ function Review() {
                 alert('Something went wrong!');
             });
     }
+    const goBack = () => {
+        history.push('/comments');
+    }
 
     return (
         <div>
-            <h1>Review before submitting</h1>
-            <h4>Feelings</h4>
-            {feelings}
-            <h4>Understanding</h4>
-            {understanding}
-            <h4>Support</h4>
-            {support}
-            <h4>Comments</h4>
-            {comments}
+            <br /><br /><br /><br />
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Feelings</th>
+                        <td>{feelings}</td>
+                    </tr>
+                    <tr>
+                        <th>Understanding</th>
+                        <td>{understanding}</td>
+                    </tr>
+                    <tr>
+                        <th>Support</th>
+                        <td>{support}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Comments:</h3>
+            <Box sx={{ 
+                minWidth: '200px', 
+                maxWidth: '600px',
+                width: 'auto',
+                margin: 'auto', 
+                border:'1px solid grey', 
+                borderRadius: '5px',
+                padding: '20px 20px' }}>
+                "{comments}"
+            </Box>
             <br />
             <br />
-            <button onClick={submitReview}>Submit Feedback</button>
+            <Button 
+                type='button' 
+                variant='contained' 
+                sx={{ marginRight: '100px'}}
+                onClick={goBack}>
+                Go back
+            </Button>
+            <Button 
+                type='submit' 
+                variant='contained' 
+                onClick={submitReview}>
+                Submit Feedback
+            </Button>
         </div>
     )
 }
 
 export default Review;
-    

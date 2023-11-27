@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom'; 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Box } from '@mui/material';
-
 
 function Review() {
     const feelings = useSelector(store => store.feelings);
@@ -11,6 +10,7 @@ function Review() {
     const support = useSelector(store => store. support);
     const comments = useSelector(store => store.comments);
     const history = useHistory();
+    const dispatch = useDispatch();
     const submitReview = (event) => {
         event.preventDefault();
         axios.post('/feedback', {
@@ -19,6 +19,10 @@ function Review() {
             support: support,
             comments: comments
             }).then((response) => {
+                dispatch({ type: 'SET_FEELINGS', payload: null});
+                dispatch({ type: 'SET_SUPPORT', payload: null});
+                dispatch({ type: 'SET_UNDERSTANDING', payload: null});
+                dispatch({ type: 'SET_COMMENTS', payload: ''});
                 history.push('/endpage');
             }).catch((error) => {
                 console.log('Error submitting feedback:', error);

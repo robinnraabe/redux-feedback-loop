@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom'; 
 
 
@@ -10,7 +10,10 @@ function Home() {
     }
 
     return (
-        <button onClick={handleClick}>Enter feedback</button>
+        <div>
+            <br /><br /><br /><br /><br /><br /><br /><br />
+            <Button type='button' variant='contained' onClick={handleClick}>Start feedback</Button>
+        </div>
     )
 }
 

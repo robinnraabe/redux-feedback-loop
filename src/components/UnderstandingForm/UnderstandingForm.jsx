@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Radio, RadioGroup, FormControlLabel, FormControl, 
     FormLabel, Button, Snackbar, Alert } from '@mui/material';
 
-
 function UnderstandingForm() {
     const [understanding, setUnderstanding] = useState(useSelector(store => store.understanding));
     const [open, setOpen] = useState(false);
@@ -58,7 +57,7 @@ function UnderstandingForm() {
             <Button 
                 type='button' 
                 variant='contained' 
-                sx={{ marginRight: '200px'}}
+                sx={{ marginRight: '200px', backgroundColor: 'gray'}}
                 onClick={goBack}>
                     Back
             </Button> 

@@ -25,21 +25,30 @@ function CommentForm() {
             <br /><br /><br />
             <FormControl>
                 <FormLabel id='text-field' sx={{ fontSize: '24px' }}>Any comments you want to leave?</FormLabel>
-                <br />
-                <TextField
+                <br /><br />
+                <TextField 
+                    multiline
                     value={comment}
                     onChange={handleChange}
+                    sx={{ width: '400px' }}
+                    inputProps={{ style: {fontWeight: '300', color: 'rgb(72, 72, 72)'} }} 
                 />
             </FormControl>
-            <br /><br />
+            <br /><br /><br /><br /><br /><br />
             <Button 
                 type='button' 
                 variant='contained' 
-                onClick={goBack}
-                sx={{ marginRight: '200px'}}>
+                sx={{ marginRight: '200px', width: '100px', backgroundColor: 'gray' }}
+                onClick={goBack}>
                     Back
             </Button> 
-            <Button type='submit' variant='contained' onClick={addComment}>Review</Button> 
+            <Button 
+                type='submit' 
+                variant='contained' 
+                sx={{ width: '100px' }}
+                onClick={addComment}>
+                    Review
+            </Button> 
         </div>
     )
 }

@@ -10,7 +10,7 @@ function FeelingForm() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const addFeelings = (event) => {
+    const addFeelings = () => {
         if (feelings !== null) {
             dispatch({type: 'SET_FEELINGS', payload: feelings});
             history.push('/understanding');
@@ -56,7 +56,7 @@ function FeelingForm() {
             <Button
                 type='button' 
                 variant='contained' 
-                sx={{ marginRight: '200px'}}
+                sx={{ marginRight: '200px', backgroundColor: 'gray' }}
                 onClick={goBack}>
                     Back
             </Button> 

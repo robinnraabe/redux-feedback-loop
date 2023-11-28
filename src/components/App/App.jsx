@@ -1,7 +1,5 @@
 import React from 'react';
-import axios from 'axios';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import { useHistory } from 'react-router-dom'; 
 import './App.css';
 import Home from '../Home/Home.jsx';
 import FeelingForm from '../FeelingForm/FeelingForm.jsx';
@@ -10,7 +8,7 @@ import SupportForm from '../SupportForm/SupportForm.jsx';
 import CommentForm from '../CommentForm/CommentForm.jsx';
 import Review from '../Review/Review.jsx';
 import EndPage from '../EndPage/EndPage.jsx';
-
+import Admin from '../Admin/Admin.jsx';
 
 function App() {
 
@@ -18,8 +16,8 @@ function App() {
     <div className='App'>
       <Router>
         <header className='App-header'>
-          <h1 className='App-title'>Feedback!</h1>
-          <h4>Don't forget it!</h4>
+          <h1 className='App-title'>Feedback welcome</h1>
+          <h4>All submissions are anonymous</h4>
         </header>
         <Route exact path='/'>
           <Home />
@@ -41,6 +39,9 @@ function App() {
         </Route>
         <Route exact path='/endpage'>
           <EndPage />
+        </Route>
+        <Route exact path='/admin'>
+          <Admin />
         </Route>
       </Router>
     </div>

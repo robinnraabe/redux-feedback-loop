@@ -9,7 +9,7 @@ function SupportForm() {
     const [open, setOpen] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
-    const addSupport = (event) => {
+    const addSupport = () => {
         if (support !== null) {
             dispatch({type: 'SET_SUPPORT', payload: support});
             history.push('/comments');
@@ -39,7 +39,7 @@ function SupportForm() {
                 <br />
                 <RadioGroup
                     row
-                    sx={{ textAlign: 'center' }}
+                    sx={{ alignSelf: 'center' }}
                     aria-labelledby='label'
                     value={support}
                     name='button-group'
@@ -56,7 +56,7 @@ function SupportForm() {
             <Button 
                 type='button' 
                 variant='contained' 
-                sx={{ marginRight: '200px'}}
+                sx={{ marginRight: '200px', backgroundColor: 'gray' }}
                 onClick={goBack}>
                     Back
             </Button> 

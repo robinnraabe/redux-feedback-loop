@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom'; 
 import { useDispatch, useSelector } from 'react-redux';
@@ -35,48 +35,52 @@ function Review() {
 
     return (
         <div>
-            <br /><br /><br /><br />
-            <table>
+            <br />
+            <h2>Feedback</h2>
+            <table id='table'>
                 <tbody>
                     <tr>
-                        <th>Feelings</th>
-                        <td>{feelings}</td>
+                        <th id='th'>Feelings</th>
+                        <td id='id'>{feelings}</td>
                     </tr>
                     <tr>
-                        <th>Understanding</th>
-                        <td>{understanding}</td>
+                        <th id='th'>Understanding</th>
+                        <td id='id'>{understanding}</td>
                     </tr>
                     <tr>
-                        <th>Support</th>
-                        <td>{support}</td>
+                        <th id='th'>Support</th>
+                        <td id='id'>{support}</td>
                     </tr>
                 </tbody>
             </table>
-            <h3>Comments:</h3>
-            <Box sx={{ 
+            <br /><br />
+            <h3>Comments</h3>
+            <Box className='comment' sx={{ 
                 minWidth: '200px', 
                 maxWidth: '600px',
-                width: 'auto',
+                width: '400px',
                 margin: 'auto', 
-                border:'1px solid grey', 
+                border:'1px solid lightgrey', 
                 borderRadius: '5px',
-                padding: '20px 20px' }}>
-                "{comments}"
+                padding: '20px 20px',
+                textAlign: 'left' }}>
+                {comments}
             </Box>
             <br />
             <br />
             <Button 
                 type='button' 
                 variant='contained' 
-                sx={{ marginRight: '100px'}}
+                sx={{ marginRight: '200px', width: '120px', backgroundColor: 'gray'}}
                 onClick={goBack}>
                 Go back
             </Button>
             <Button 
                 type='submit' 
                 variant='contained' 
+                sx={{ width: '120px' }}
                 onClick={submitReview}>
-                Submit Feedback
+                Submit
             </Button>
         </div>
     )

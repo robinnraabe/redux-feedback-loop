@@ -27,15 +27,47 @@ h4 {
   width: 300px;
 }
 
-table {
+#table {
   margin: auto;
 }
 
-th {
+#th {
   text-align: left;
+  font-size: 18px;
+  color: black;
+  font-weight: 300;
 }
 
 td {
-  padding-left: 20px;
+  padding-left: 50px;
   text-align: right;
+  color: rgb(0, 0, 0);
+  font-weight: 300;
 }
+
+#admin-table {
+  border: 1px solid gray;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 10px;
+  margin: auto;
+}
+
+.comment {
+  max-width: 300px;
+  color: rgb(72, 72, 72);
+  font-weight: 300;
+}
+
+.admin-table {
+  width: 80%;
+  border: 3px solid black;
+}
+
+h2, h3 {
+  color: rgb(92, 92, 92);
+  font-weight: 500;
+}
+
+
+

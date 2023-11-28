@@ -3,11 +3,12 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FormControl, FormLabel, TextField, Button } from '@mui/material';
 
-
 function CommentForm() {
     let [comment, setComment] = useState(useSelector(store => store.comments));
     const dispatch = useDispatch();
     const history = useHistory();
+
+    // Redux and navigation
     const addComment = () => {
         dispatch({type: 'SET_COMMENTS', payload: comment});
         history.push('/review');

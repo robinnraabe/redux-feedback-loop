@@ -6,6 +6,7 @@ import AdminItem from '../AdminItem/AdminItem';
 function Admin() {
     const [feedback, setFeedback] = useState([]);
 
+    // GET feedback
     const getFeedback = () => {
         axios.get('/feedback') 
             .then((response) => {
@@ -26,7 +27,7 @@ function Admin() {
             <h1>Admin View</h1>
             <table id='admin-table' className='admin-table'>
                 <tbody>
-                    <tr>
+                    <tr id='row'>
                         <th id='admin-table'>Flag</th>
                         <th id='admin-table'>Feelings</th>
                         <th id='admin-table'>Understanding</th>
@@ -34,7 +35,7 @@ function Admin() {
                         <th id='admin-table'>Comments</th>
                         <th id='admin-table'>Date</th>
                         <th id='admin-table'>Delete</th>
-                    </tr>
+                    </tr >
                     {feedback.map((feedback, i) => {
                         return <AdminItem key={i} feedback={feedback} getFeedback={getFeedback}/>
                     })}

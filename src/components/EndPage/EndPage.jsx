@@ -18,7 +18,7 @@ function EndPage() {
             <br />
             <h1>Thank you for your feedback!</h1>
             <br /><br /><br />
-            <Button type='button' variant='contained' onClick={reset}>Leave new feedback</Button>
+            <Button type='button' variant='contained' onClick={reset}>Want to leave more feedback?</Button>
             <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
                     Feedback submitted.

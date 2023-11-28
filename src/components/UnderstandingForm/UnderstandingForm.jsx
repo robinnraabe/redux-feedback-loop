@@ -10,6 +10,7 @@ function UnderstandingForm() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // Redux and navigation
     const addUnderstanding = () => {
         if (understanding !== null) {
             dispatch({type: 'SET_UNDERSTANDING', payload: understanding});

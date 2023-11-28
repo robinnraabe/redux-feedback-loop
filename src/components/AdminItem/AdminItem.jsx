@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 function AdminItem(props) {
     const formattedDate = format(new Date(props.feedback.date), "MM/d/yyyy");
 
+    // DELETE feedback line, with SweetAlert
     const deleteFeedback = () => {
         Swal.fire({
             title: "Are you sure?",
@@ -37,6 +38,7 @@ function AdminItem(props) {
             }
           });
     }
+    // PUT feedback, toggles the flagged property
     const toggleFlagged = () => {
         axios.put(`/feedback/${props.feedback.id}`)
             .then((response) => {
@@ -48,7 +50,7 @@ function AdminItem(props) {
     }
 
     return (
-        <tr>
+        <tr id='tr'>
             <td id='admin-table'>
                 {props.feedback.flagged ? (
                     // if true

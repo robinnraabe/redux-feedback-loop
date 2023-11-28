@@ -9,6 +9,8 @@ function SupportForm() {
     const [open, setOpen] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
+    
+    // Redux and navigation
     const addSupport = () => {
         if (support !== null) {
             dispatch({type: 'SET_SUPPORT', payload: support});

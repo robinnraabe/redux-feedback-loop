@@ -11,6 +11,8 @@ function Review() {
     const comments = useSelector(store => store.comments);
     const history = useHistory();
     const dispatch = useDispatch();
+
+    // POST feedback, submits reviewed feedback to database
     const submitReview = (event) => {
         event.preventDefault();
         axios.post('/feedback', {

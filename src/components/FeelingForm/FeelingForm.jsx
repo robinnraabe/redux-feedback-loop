@@ -10,6 +10,7 @@ function FeelingForm() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // Redux and navigation
     const addFeelings = () => {
         if (feelings !== null) {
             dispatch({type: 'SET_FEELINGS', payload: feelings});
